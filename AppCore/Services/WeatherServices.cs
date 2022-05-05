@@ -1,33 +1,29 @@
 ﻿using AppCore.Interfaces;
-using Entities.Entities;
+using Domain.Entities;
+using Domain.Interfaces;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AppCore.Services
 {
-    class WeatherServices 
+    class WeatherServices : ModelServices<OpenWeather>, Iweatherservices
     {
-        public void Add(OpenWeather t)
+        IWeather weather;
+        public WeatherServices(IWeather model) : base(model)
         {
-            throw new NotImplementedException();
+            this.weather = model;
+        }
+        
+        public List<OpenWeather> findbycity(Expression<Func<OpenWeather, bool>> where)
+        {
+            return weather.findbycity(where);
         }
 
-        public void Delete(OpenWeather t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(int t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<OpenWeather> read()
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

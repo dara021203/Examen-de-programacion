@@ -9,24 +9,24 @@ namespace Insfraestructure.bb
 {
     public static class Binaryreader
     {
-        public static object GetValue<T>(this BinaryReader br, TypeCode typeCode)
+        public static object GetValue<T>(this BinaryReader read, TypeCode tipo)
         {
 
-            switch (typeCode)
+            switch (tipo)
             {
 
-                case TypeCode.Boolean: { return br.ReadBoolean(); }
-                case TypeCode.Byte: { return br.ReadByte(); }
-                case TypeCode.Char: { return br.ReadChar(); }
-                case TypeCode.Decimal: { return br.ReadDecimal(); }
-                case TypeCode.Double: { return br.ReadDouble(); }
-                case TypeCode.Single: { return br.ReadSingle(); }
-                case TypeCode.UInt64: { return br.ReadUInt64(); }
-                case TypeCode.Int16: { return br.ReadInt16(); }
-                case TypeCode.Int32: { return br.ReadInt32(); }
-                case TypeCode.Int64: { return br.ReadUInt64(); }
-                case TypeCode.String: { return br.ReadString(); }
-                default: { return br.Read(); }
+                case TypeCode.Boolean: { return read.ReadBoolean(); }
+                case TypeCode.Byte: { return read.ReadByte(); }
+                case TypeCode.Char: { return read.ReadChar(); }
+                case TypeCode.Decimal: { return read.ReadDecimal(); }
+                case TypeCode.Double: { return read.ReadDouble(); }
+                case TypeCode.Single: { return read.ReadSingle(); }
+                case TypeCode.UInt64: { return read.ReadUInt64(); }
+                case TypeCode.Int16: { return read.ReadInt16(); }
+                case TypeCode.Int32: { return read.ReadInt32(); }
+                case TypeCode.Int64: { return read.ReadUInt64(); }
+                case TypeCode.String: { return read.ReadString(); }
+                default: { return read.Read(); }
             }
 
         }

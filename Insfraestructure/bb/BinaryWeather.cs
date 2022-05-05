@@ -1,5 +1,7 @@
-﻿using Entities.Entities;
-using Entities.Interfaces;
+﻿using Domain.Entities;
+using Domain.Interfaces;
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +21,9 @@ namespace Insfraestructure.bb
             this.raf = new RafContext("Clima", Size);
         }
 
+       
+
+     
         public List<OpenWeather> findbycity(Expression<Func<OpenWeather, bool>> where)
         {
             return raf.Find<OpenWeather>(where);
@@ -27,7 +32,6 @@ namespace Insfraestructure.bb
         public void Add(OpenWeather t)
         {
             raf.Create<OpenWeather>(t);
-           
         }
 
         public void Delete(OpenWeather t)
@@ -35,14 +39,14 @@ namespace Insfraestructure.bb
             raf.Delete(t.Id);
         }
 
+        List<OpenWeather> IModel<OpenWeather>.read()
+        {
+            return raf.GetAll<OpenWeather>();
+        }
+
         public bool Delete(int t)
         {
             throw new NotImplementedException();
-        }
-
-        public List<OpenWeather> read()
-        {
-            return raf.GetAll<OpenWeather>();
         }
     }
 }

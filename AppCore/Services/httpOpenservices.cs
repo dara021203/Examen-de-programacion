@@ -1,6 +1,6 @@
 ﻿using AppCore.Interfaces;
-using Entities.Entities;
-using Entities.Interfaces;
+using Domain.Entities;
+using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
